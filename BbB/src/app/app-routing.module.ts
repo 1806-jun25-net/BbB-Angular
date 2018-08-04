@@ -16,7 +16,8 @@ const appRoutes: Routes = [
   { path: "location/:id", component: LocationDetailComponent },
   { path: "location/:id/menu", component: MenuComponent },
   { path: "archive", component: ArchiveComponent },
-  { path: "archive/:id", component: ArchiveDetailComponent }
+  { path: "archive/:id", component: ArchiveDetailComponent },
+  { path: "**", redirectTo: 'login'}
 ];
 
 @NgModule({
@@ -27,4 +28,4 @@ const appRoutes: Routes = [
   exports: [ RouterModule ],
   declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {  }

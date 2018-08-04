@@ -1,8 +1,26 @@
-
-    <h1>{{title}}</h1>
+    
+  <div class="w3-top">
+      <div class="w3-bar w3-black w3-card">
+        <a routerLink="/archive" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Drive Archive</a>
+        <a routerLink="/location" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Manage Locations</a>
+        <a routerLink="/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Return</a>
+        <!-- <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Merchandise</a>
+            <a href="#" class="w3-bar-item w3-button">Extras</a>
+            <a href="#" class="w3-bar-item w3-button">Media</a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="w3-content w3-container" style="max-width:2000px;margin-top:46px">
+    
     <nav>
       <a routerLink="/location">Dashboard</a>
       <a routerLink="/archive">Heroes</a>
     </nav>
     <router-outlet></router-outlet>
     <!--<h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>-->
+    </div>

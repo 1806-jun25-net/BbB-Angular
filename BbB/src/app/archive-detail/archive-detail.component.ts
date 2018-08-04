@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './archive-detail.component.html',
   styleUrls: ['./archive-detail.component.css']
 })
-export class ArchiveDetailComponent implements OnInit {
+export class  ArchiveDetailComponent implements OnInit {
 
   constructor() { }
 
