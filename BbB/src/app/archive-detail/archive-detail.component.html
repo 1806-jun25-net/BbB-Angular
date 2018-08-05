@@ -1,3 +1,113 @@
-<p>
-  archive-detail works!
-</p>
+ <h2>Drive Details</h2>
+ <div *ngIf="drive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Driver
+                </th>
+                <th>
+                    Destination
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Time
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                  Size
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+                    <td>
+                          {{drive.id}}
+                    </td>
+                    <td>
+                        {{drive.driver.name}}
+                    </td>
+                    <td>
+                        {{drive.dest.name}}
+                    </td>
+                    <td>
+                        {{driveTime().toDateString()}} </td>
+                        <td> {{driveTime().toLocaleTimeString()}}
+                    </td>
+                    <td>
+                        {{type()}}
+                    </td>
+                    <td>
+                        {{size()}}
+                    </td>
+                    <td style="padding:0 0 0 50px;">
+                        <a routerLink="/archive/">BACK</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    <h3>Users on Drive</h3>
+    <div *ngIf="!drive.isPickup">
+      <ul>
+        <li *ngFor="let user of drive.usersReal">{{user.name}}</li>
+      </ul>
+     </div>
+    <div *ngIf="drive.isPickup">
+        <ul>
+          <li *ngFor="let user of drive.usersReal">{{user.name}}
+  <table class="table">
+      <thead>
+          <tr>
+              <th>
+                  Item
+              </th>
+              <th>
+                  Cost
+              </th>
+              <th>
+                  Quantity
+              </th>
+              <th>
+                  Message
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+              <tr *ngFor="let fullItem of drive.ordersReal[user.id]; let i = index">
+                  <td>
+                        {{fullItem.item.name}}
+                  </td>
+                  <td>
+                      ${{fullItem.item.cost}}
+                  </td>
+                  <td>
+                      {{drive.dest.name}}
+                  </td>
+                  <td>
+                      {{driveTime(i).toDateString()}} </td>
+                      <td> {{driveTime(i).toLocaleTimeString()}}
+                  </td>
+                  <td>
+                      {{type(i)}}
+                  </td>
+                  <td>
+                      {{size(i)}}
+                  </td>
+              </tr>
+      </tbody>
+  </table></li>
+</ul>
+</div>
+</div>
+
+
+<div *ngIf="!(drive)">
+  <span>No drive found.</span>
+</div>

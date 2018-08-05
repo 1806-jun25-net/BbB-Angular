@@ -1,3 +1,61 @@
-<p>
-  archive works!
-</p>
+<h2>
+    Archived Drives 
+  </h2>
+  <div *ngIf="drives && drives.length > 0">
+  <table class="table">
+      <thead>
+          <tr>
+              <th>
+                  Id
+              </th>
+              <th>
+                  Driver
+              </th>
+              <th>
+                  Destination
+              </th>
+              <th>
+                  Date
+              </th>
+              <th>
+                  Time
+              </th>
+              <th>
+                  Type
+              </th>
+              <th>
+                Size
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+              <tr *ngFor="let drive of drives; let i = index">
+                  <td>
+                      <a routerLink="/archive/{{drive.id}}">
+                        {{drive.id}}
+                      </a>
+                  </td>
+                  <td>
+                      {{drive.driver.name}}
+                  </td>
+                  <td>
+                      {{drive.dest.name}}
+                  </td>
+                  <td>
+                      {{driveTime(i).toDateString()}} </td>
+                      <td> {{driveTime(i).toLocaleTimeString()}}
+                  </td>
+                  <td>
+                      {{type(i)}}
+                  </td>
+                  <td>
+                      {{size(i)}}
+                  </td>
+              </tr>
+      </tbody>
+  </table>
+</div>
+
+<div *ngIf="!(drives && drives.length > 0)">
+  <span>No drives found</span>
+</div>

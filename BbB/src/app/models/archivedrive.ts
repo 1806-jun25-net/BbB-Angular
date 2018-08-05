@@ -1,14 +1,18 @@
 import { Destination } from "./destination";
 import { User } from "./user";
-import { Order } from "./order";
 import { Driver } from "./driver";
 
 export class ArchiveDrive{
 id: number;
 dest: Destination;
-IsPickup: boolean;
+isPickup: boolean;
 time: Date;
 driver: Driver;
-users: User[];
-orders: Order[];
+usersReal: User[];
+type(){
+    if(this.isPickup){
+    return 'Pickup';
+  }
+    return 'Join';
+  }
 }

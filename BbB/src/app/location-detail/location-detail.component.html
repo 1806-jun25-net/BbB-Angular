@@ -1,3 +1,15 @@
-<p>
-  location-detail works!
-</p>
+<h2>
+  {{dest.name}}: {{dest.address}}
+</h2>
+<div *ngIf="dest.menuReal && dest.menuReal.length > 0">
+    <ul>
+      <li *ngFor="let item of dest.menuReal">
+          {{item.name}}: ${{item.cost}}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!(dest.menuReal && dest.menuReal.length > 0)">
+    <span>No menu found.</span>
+  </div>
+  <p>Edit</p>
+  <a routerLink="/destination">Return</a>

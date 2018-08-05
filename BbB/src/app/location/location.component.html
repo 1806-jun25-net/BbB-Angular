@@ -1,14 +1,17 @@
-<p>
-  locations
-</p>
-<p>
-    dests: {{dests}}
-  </p>
-  <p>
-      dests2: {{dests2}}
-    </p>
-    <p>
-        test: {{tests}}
-      </p>
+<h2>
+  Destinations
+</h2>
+<div *ngIf="dests && dests.length > 0">
+  <ul>
+    <li *ngFor="let destination of dests">
+      <a routerLink="/destination/{{destination.id}}">
+        {{destination.name}}
+      </a>
+       : {{destination.address}}
+    </li>
+  </ul>
+</div>
+<div *ngIf="!(dests && dests.length > 0)">
+  <span>No destinations found</span>
+</div>
 
-  
