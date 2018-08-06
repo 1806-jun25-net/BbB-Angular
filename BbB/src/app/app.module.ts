@@ -12,7 +12,6 @@ import { LocationDetailComponent } from './location-detail/location-detail.compo
 import { ArchiveDetailComponent } from './archive-detail/archive-detail.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { RouterModule } from '../../node_modules/@angular/router';
-import { NewItemComponent } from './new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { NewItemComponent } from './new-item/new-item.component';
     LoginComponent,
     LogoutComponent,
     LocationDetailComponent,
-    ArchiveDetailComponent,
-    NewItemComponent
+    ArchiveDetailComponent
   ],
   imports: [
     FormsModule,         // for ngModel
