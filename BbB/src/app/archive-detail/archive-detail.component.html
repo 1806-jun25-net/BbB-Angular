@@ -61,7 +61,7 @@
      </div>
     <div *ngIf="drive.isPickup">
         <ul>
-          <li *ngFor="let user of drive.usersReal">{{user.name}}
+          <li *ngFor="let user of drive.usersReal"><h4>{{user.name}}</h4>
   <table class="table">
       <thead>
           <tr>
@@ -88,21 +88,14 @@
                       ${{fullItem.item.cost}}
                   </td>
                   <td>
-                      {{drive.dest.name}}
+                      {{fullItem.quantity}}
                   </td>
                   <td>
-                      {{driveTime(i).toDateString()}} </td>
-                      <td> {{driveTime(i).toLocaleTimeString()}}
-                  </td>
-                  <td>
-                      {{type(i)}}
-                  </td>
-                  <td>
-                      {{size(i)}}
+                    {{fullItem.message}}
                   </td>
               </tr>
       </tbody>
-  </table></li>
+  </table><br/></li>
 </ul>
 </div>
 </div>

@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+
+<h3>
+  Please login:
+</h3>
+<div>
+    <label>Username:
+      <input #name type="text"/>
+    </label>
+    <label>Password:
+      <input #pass type="text"/>
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="login(name.value,pass.value); pass.value = '';">
+      Add Item
+    </button>
+  </div>
+

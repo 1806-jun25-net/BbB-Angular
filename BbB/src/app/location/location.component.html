@@ -14,4 +14,19 @@
 <div *ngIf="!(dests && dests.length > 0)">
   <span>No destinations found</span>
 </div>
+<br/>
+<div>
+  <label>Name:
+    <input #name type="text"/>
+  </label>
+  <label>Address:
+    <input #address type="text" type/>
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(name.value,address.value); name.value=''; address.value = '';">
+    Add Destination
+  </button>
+</div>
+
+
 

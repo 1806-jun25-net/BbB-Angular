@@ -13,27 +13,10 @@ export class LocationComponent implements OnInit {
   constructor(private api: LunchapiService,
     private route: ActivatedRoute) { }
     dests: Destination[];
-
+    newDest: Destination;
   ngOnInit() {
     this.get();
-    // this.test = 'start';
-    // this.api.getDestinations(
-    //   (res)=> {this.dests = res; this.test = 'true';},
-    //   (res)=>{this.test = 'fail'}
-    //   );
-   }
-  // get1(){
-  //   this.api.getDestinations().subscribe(
-  //           data => { this.dests = data},
-  //           err => console.error(err),
-  //           () => console.log('done loading foods'));
-  // }
-  // get2(){
-  //   this.api.getDestinations2().subscribe(
-  //           data => { this.dests2 = data},
-  //           err => console.error(err),
-  //           () => console.log('done loading foods'));
-  // }
+  }
   get(){
     this.api.getDestinations((res)=>{
       console.log("successful dests");
@@ -43,5 +26,17 @@ export class LocationComponent implements OnInit {
   (res)=>console.log("failure dests")
 );
   }
-
+add(name, address){
+  this.newDest = new Destination;
+    this.newDest.name = name;
+    this.newDest.id=-1;
+    this.newDest.address=address;
+    this.api.postDestination(this.newDest,
+    (res)=>{
+      console.log("successful postDest");
+      console.log(res);
+      this.get();
+    },
+  (res)=>console.log("failure postDest"));
+  }
 }

@@ -2,14 +2,58 @@
   {{dest.name}}: {{dest.address}}
 </h2>
 <div *ngIf="dest.menuReal && dest.menuReal.length > 0">
-    <ul>
-      <li *ngFor="let item of dest.menuReal">
-          {{item.name}}: ${{item.cost}}
-      </li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Item
+                </th>
+                <th>
+                </th>
+                <th>
+                    Cost
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dest.menuReal; let i = index">
+                    <td>
+                          {{item.name}}
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        ${{item.cost}}
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <button (click)="removeItem(i);">
+                            Remove Item
+                          </button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
   </div>
   <div *ngIf="!(dest.menuReal && dest.menuReal.length > 0)">
     <span>No menu found.</span>
   </div>
-  <p>Edit</p>
-  <a routerLink="/destination">Return</a>
+  <br/>
+    <div>
+      <label>Item Name:
+        <input #itemName type="text"/>
+      </label>
+      <label>Cost:
+        $<input #itemCost type="number" type/>
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="addItem(itemName.value,itemCost.value); itemName.value=''; itemCost.value = 0;">
+        Add Item
+      </button>
+    </div>
+  <p><a routerLink="/destination">Return</a></p>

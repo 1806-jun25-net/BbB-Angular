@@ -5,4 +5,5 @@ export class User{
     email: string;
     credit: number;
     rating: number;
+    pass: string;
 }
