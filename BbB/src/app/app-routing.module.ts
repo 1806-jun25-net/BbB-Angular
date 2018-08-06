@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: "destination/:id", component: LocationDetailComponent },
   { path: "archive", component: ArchiveComponent },
   { path: "archive/:id", component: ArchiveDetailComponent },
-  { path: "**", redirectTo: 'login'}
+  { path: "**", redirectTo: 'archive'}
 ];
 
 @NgModule({

@@ -7,11 +7,11 @@
       <input #name type="text"/>
     </label>
     <label>Password:
-      <input #pass type="text"/>
+      <input #pass type="password"/>
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
     <button (click)="login(name.value,pass.value); pass.value = '';">
-      Add Item
+      Login
     </button>
   </div>
 
